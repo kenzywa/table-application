@@ -15,22 +15,27 @@ class SecondViewController: UIViewController {
     //MARK: - UILabels
         nameAndSurenameLabel.center = CGPoint(x: 103,y: 85)
         nameAndSurenameLabel.textAlignment = .natural
+        nameAndSurenameLabel.text = "Your name and surename"
         self.view.addSubview(nameAndSurenameLabel)
         
         professionLabel.center = CGPoint(x: 103,y: 110)
         professionLabel.textAlignment = .natural
+        professionLabel.text = "Your profession"
         self.view.addSubview(professionLabel)
         
         ageLabel.center = CGPoint(x: 103,y: 135)
         ageLabel.textAlignment = .natural
+        ageLabel.text = "Your age"
         self.view.addSubview(ageLabel)
         
         maleLabel.center = CGPoint(x: 140,y: 135)
         maleLabel.textAlignment = .natural
+        maleLabel.text = "Your male"
         self.view.addSubview(maleLabel)
         
         numberPhoneLabel.center = CGPoint(x: 280,y: 135)
         numberPhoneLabel.textAlignment = .natural
+        numberPhoneLabel.text = "Your phone number"
         self.view.addSubview(numberPhoneLabel)
         
         
