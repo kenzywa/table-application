@@ -5,7 +5,7 @@ class SecondViewController: UIViewController {
     let professionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
     let ageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     let maleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-    let numberPhoneLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 180, height: 25))
+    let numberPhoneLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class SecondViewController: UIViewController {
         maleLabel.layer.cornerRadius = 8
         self.view.addSubview(maleLabel)
         
-        numberPhoneLabel.center = CGPoint(x: 300,y: 140)
+        numberPhoneLabel.center = CGPoint(x: 310,y: 140)
         numberPhoneLabel.textAlignment = .center
         numberPhoneLabel.text = "Your phone number"
         numberPhoneLabel.font = nameAndSurenameLabel.font.withSize(20)
