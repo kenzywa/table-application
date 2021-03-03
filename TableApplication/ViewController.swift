@@ -44,8 +44,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = section[indexPath.row]
-        let vc = row.generator(Parameters)
+        let employee = employees[indexPath.row]
+        let vc = SecondViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     //MARK: - UITableViewDelegate
