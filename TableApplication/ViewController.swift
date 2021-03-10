@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         createTable()
+        self.tableView.reloadData()
         
         view.addSubview(firstTableView)
     }
@@ -45,12 +46,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employee = employees[indexPath.row]
-        let vc = SecondViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let secondVC = SecondViewController()
+        navigationController?.pushViewController(secondVC, animated: true)
+    }
+    @objc
+    func refresh() {
+        tableview.reloadData()
     }
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return 80.0
     }
 }
 
