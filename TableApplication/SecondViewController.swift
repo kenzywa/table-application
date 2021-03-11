@@ -78,7 +78,7 @@ class SecondViewController: UIViewController {
     }
     @objc private func didTapSaveButton()
     {
-        employee?.name = employee?.name
+        
     }
 
 }
