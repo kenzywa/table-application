@@ -8,10 +8,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                      Employee(name: "Marina", surname: "Bondarenko", age: "28", profession: "Sales Manager", male: "W", numberPhone: "+79811234567", id: UUID().uuidString),
                      Employee(name: "Kirill", surname: "Unshikov", age: "21" , profession: "Go dev", male: "M", numberPhone: "+79811234567", id: UUID().uuidString),
                      Employee(name: "Roman", surname: "Suhov", age: "22" , profession: "Python dev ", male: "m", numberPhone: "+79811234567", id: UUID().uuidString),
-                     Employee(name: "Raif", surname: "Garipov", age: "19" , profession: "Student ", male: "M", numberPhone: "+78005553535", id: UUID().uuidString)]
+                     Employee(name: "Raif", surname: "Garipov", age: "19" , profession: "Student ", male: "M", numberPhone: "+78005553535", id: UUID().uuidString),
+                     Employee(name: "Igor", surname: "Avgustov", age: "22" , profession: "Frontend dev", male: "M", numberPhone: "+78005553535", id: UUID().uuidString)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Table of Employees"
         
         createTable()
         firstTableView.reloadData()
