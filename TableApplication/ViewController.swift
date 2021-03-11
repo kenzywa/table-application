@@ -3,14 +3,19 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var firstTableView = UITableView(frame: .zero, style: .plain)
     let identifier = "MyCell"
-    var employees = [Employee(name: "Veronika", surname: "Petrova", age: 19, profession: "Docter", male: "W", numberPhone: "+79811234567"),
-                     Employee(name: "Roman", surname: "Shukailo", age: 22, profession: "Student", male: "m", numberPhone: "+79811234567"),
-                     Employee(name: "Marina", surname: "Bondarenko", age: 28, profession: "Sales Manager", male: "W", numberPhone: "+79811234567")]
+    var employees = [Employee(name: "Veronika", surname: "Petrova", age: "19" , profession: "Doctor", male: "W", numberPhone: "+79811234567", id : UUID().uuidString),
+                     Employee(name: "Roman", surname: "Shukailo", age: "22" , profession: "Swift dev", male: "M", numberPhone: "+79811234567", id: UUID().uuidString),
+                     Employee(name: "Marina", surname: "Bondarenko", age: "28", profession: "Sales Manager", male: "W", numberPhone: "+79811234567", id: UUID().uuidString),
+                     Employee(name: "Kirill", surname: "Unshikov", age: "21" , profession: "Go dev", male: "M", numberPhone: "+79811234567", id: UUID().uuidString),
+                     Employee(name: "Roman", surname: "Suhov", age: "22" , profession: "Python dev ", male: "m", numberPhone: "+79811234567", id: UUID().uuidString),
+                     Employee(name: "Raif", surname: "Garipov", age: "19" , profession: "Student ", male: "M", numberPhone: "+78005553535", id: UUID().uuidString)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createTable()
+        firstTableView.reloadData()
+
         
         
         view.addSubview(firstTableView)
@@ -28,6 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         view.addSubview(firstTableView)
     }
+   
     
     //MARK: - UITableViewDataSource
     
@@ -47,6 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employee = employees[indexPath.row]
         let secondVC = SecondViewController()
+        secondVC.employee = employee
         navigationController?.pushViewController(secondVC, animated: true)
     }
     //MARK: - UITableViewDelegate
