@@ -4,5 +4,4 @@ protocol DataDelegate {
                     profession : String,
                     numberPhone : String,
                     id : String)
-                    
 }

@@ -19,16 +19,12 @@ class SecondViewController: UIViewController {
     let maleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     var numberPhoneTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 150, height: 25))
     let buttonToSave = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    
     var employee : Employee?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.title = "Your Profile"
-        
-        
-        
     //MARK: - UI
         nameTextField.center = CGPoint(x: 250,y: 105)
         nameTextField.textAlignment = .center
@@ -42,12 +38,10 @@ class SecondViewController: UIViewController {
         surnameTextField.text = employee?.surname
         self.view.addSubview(surnameTextField)
         
-        
         professionTextField.center = CGPoint(x: 103,y: 140)
         professionTextField.textAlignment = .center
         professionTextField.font = professionTextField.font?.withSize(20)
         professionTextField.text = employee?.profession
-        //professionLabel.backgroundColor = .systemGray
         professionTextField.layer.borderWidth = 2
         professionTextField.layer.cornerRadius = 8
         self.view.addSubview(professionTextField)
@@ -56,7 +50,6 @@ class SecondViewController: UIViewController {
         ageLabel.textAlignment = .center
         ageLabel.font = ageLabel.font.withSize(20)
         ageLabel.text = employee?.age
-        //ageLabel.backgroundColor = .systemGray
         ageLabel.layer.borderWidth = 2
         ageLabel.layer.cornerRadius = 8
         self.view.addSubview(ageLabel)
@@ -64,7 +57,6 @@ class SecondViewController: UIViewController {
         maleLabel.center = CGPoint(x: 90,y: 185)
         maleLabel.textAlignment = .center
         maleLabel.text =  employee?.male
-        //maleLabel.backgroundColor = .systemGray
         maleLabel.layer.borderWidth = 2
         maleLabel.layer.cornerRadius = 8
         self.view.addSubview(maleLabel)
@@ -73,7 +65,6 @@ class SecondViewController: UIViewController {
         numberPhoneTextField.textAlignment = .center
         numberPhoneTextField.font = numberPhoneTextField.font?.withSize(20)
         numberPhoneTextField.text = employee?.numberPhone
-        //numberPhoneLabel.backgroundColor = .systemGray
         numberPhoneTextField.layer.borderWidth = 2
         numberPhoneTextField.layer.cornerRadius = 8
         self.view.addSubview(numberPhoneTextField)
@@ -86,11 +77,9 @@ class SecondViewController: UIViewController {
         buttonToSave.setTitleColor(.black, for: .normal)
         buttonToSave.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
         self.view.addSubview(buttonToSave)
-        
     }
     
     @objc private func didTapSaveButton() {
-        
             guard let name = nameTextField.text,
                   let surname = surnameTextField.text,
                   let numberPhone = numberPhoneTextField.text,
@@ -99,7 +88,6 @@ class SecondViewController: UIViewController {
                 return
             }
         delegate?.toSaveData(name: name,surname: surname, profession: profession, numberPhone: numberPhone, id : id)
-        
         navigationController?.popViewController(animated: true)
     }
 }

@@ -10,30 +10,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                      Employee(name: "Roman", surname: "Suhov", age: "22" , profession: "Python dev ", male: "m", numberPhone: "+79811234567", id: UUID().uuidString),
                      Employee(name: "Raif", surname: "Garipov", age: "19" , profession: "Student ", male: "M", numberPhone: "+78005553535", id: UUID().uuidString),
                      Employee(name: "Igor", surname: "Avgustov", age: "22" , profession: "Frontend dev", male: "M", numberPhone: "+78005553535", id: UUID().uuidString)]
-     
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Table of Employees"
-        
         createTable()
         view.addSubview(firstTableView)
-        
     }
     
     func createTable() {
         self.firstTableView.frame = view.bounds
         firstTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
-        
-        
         self.firstTableView.delegate = self
         self.firstTableView.dataSource = self
-        
         firstTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         view.addSubview(firstTableView)
     }
     func toSaveData(name : String, surname : String, profession : String, numberPhone : String, id : String) {
@@ -47,22 +37,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else {
                 return
             }
-        
-       
     }
     //MARK: - UITableViewDataSource
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        
         let employee = employees[indexPath.row]
-        
         cell.textLabel?.text = "\(employee.name) \(employee.surname)"
-        
         return cell
     }
     
@@ -72,7 +56,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         secondVC.employee = employee
         navigationController?.pushViewController(secondVC, animated: true)
     }
-    
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
