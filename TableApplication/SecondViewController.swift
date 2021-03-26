@@ -1,9 +1,19 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    private var delegate : DataDelegate?
+    
+    init(delegate: DataDelegate?) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var nameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 25))
-    var surnameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 80, height: 25))
+    var surnameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 130, height: 25))
     var professionTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
     let ageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     let maleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
@@ -17,14 +27,16 @@ class SecondViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.title = "Your Profile"
         
+        
+        
     //MARK: - UI
-        nameTextField.center = CGPoint(x: 230,y: 105)
+        nameTextField.center = CGPoint(x: 250,y: 105)
         nameTextField.textAlignment = .center
         nameTextField.font = nameTextField.font?.withSize(20)
         nameTextField.text = employee?.name
         self.view.addSubview(nameTextField)
         
-        surnameTextField.center = CGPoint(x: 150,y: 105)
+        surnameTextField.center = CGPoint(x: 130,y: 105)
         surnameTextField.textAlignment = .center
         surnameTextField.font = surnameTextField.font?.withSize(20)
         surnameTextField.text = employee?.surname
@@ -76,10 +88,18 @@ class SecondViewController: UIViewController {
         self.view.addSubview(buttonToSave)
         
     }
-    @objc private func didTapSaveButton()
-    {
+    @objc private func didTapSaveButton() {
         
+            guard let name = nameTextField.text,
+                  let surname = surnameTextField.text,
+                  let numberPhone = numberPhoneTextField.text,
+                  let id = employee?.id,
+                  let profession = professionTextField.text else {
+                return
+            }
+        delegate?.toSaveData(name: name,surname: surname, profession: profession, numberPhone: numberPhone, id : id)
+        
+        navigationController?.popViewController(animated: true)
     }
-
 }
 

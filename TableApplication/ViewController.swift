@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DataDelegate {
     var firstTableView = UITableView(frame: .zero, style: .plain)
     let identifier = "MyCell"
     var employees = [Employee(name: "Veronika", surname: "Petrova", age: "19" , profession: "Doctor", male: "W", numberPhone: "+79811234567", id : UUID().uuidString),
@@ -10,17 +10,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                      Employee(name: "Roman", surname: "Suhov", age: "22" , profession: "Python dev ", male: "m", numberPhone: "+79811234567", id: UUID().uuidString),
                      Employee(name: "Raif", surname: "Garipov", age: "19" , profession: "Student ", male: "M", numberPhone: "+78005553535", id: UUID().uuidString),
                      Employee(name: "Igor", surname: "Avgustov", age: "22" , profession: "Frontend dev", male: "M", numberPhone: "+78005553535", id: UUID().uuidString)]
+     
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Table of Employees"
         
         createTable()
-        firstTableView.reloadData()
-
-        
-        
         view.addSubview(firstTableView)
+        
     }
     
     func createTable() {
@@ -35,8 +36,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         view.addSubview(firstTableView)
     }
-   
-    
+    func toSaveData(name : String, surname : String, profession : String, numberPhone : String, id : String) {
+
+            if let index = employees.firstIndex(where: {$0.id == id}) {
+                employees[index].name = name
+                employees[index].surname = surname
+                employees[index].numberPhone = numberPhone
+                employees[index].profession = profession
+                firstTableView.reloadData()
+            } else {
+                return
+            }
+        
+       
+    }
     //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,12 +65,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employee = employees[indexPath.row]
-        let secondVC = SecondViewController()
+        let secondVC = SecondViewController(delegate: self)
         secondVC.employee = employee
         navigationController?.pushViewController(secondVC, animated: true)
     }
+    
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
