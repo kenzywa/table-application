@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EmployeeEditorDelegate {
+class EmployeeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EmployeeEditorDelegate {
     var firstTableView = UITableView(frame: .zero, style: .plain)
     let identifier = "MyCell"
     var employees = [Employee(name: "Veronika", surname: "Petrova", age: 19 , profession: "Doctor", male: "W", numberPhone: 79811234567, id : UUID().uuidString),

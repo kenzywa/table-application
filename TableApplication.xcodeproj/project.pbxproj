@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30B1D47025ED873900829270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D46F25ED873900829270 /* AppDelegate.swift */; };
-		30B1D47425ED873900829270 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D47325ED873900829270 /* TableViewController.swift */; };
+		30B1D47425ED873900829270 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D47325ED873900829270 /* EmployeeListViewController.swift */; };
 		30B1D47925ED873900829270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B1D47825ED873900829270 /* Assets.xcassets */; };
 		30B1D47C25ED873900829270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B1D47A25ED873900829270 /* LaunchScreen.storyboard */; };
 		30B1D48725ED87F600829270 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D48625ED87F600829270 /* Employee.swift */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		30B1D46C25ED873900829270 /* TableApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B1D46F25ED873900829270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30B1D47325ED873900829270 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		30B1D47325ED873900829270 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		30B1D47825ED873900829270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B1D47B25ED873900829270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B1D47D25ED873900829270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 				30B1D48E25EDA15800829270 /* EmployeeEditorViewController.swift */,
 				30B1D46F25ED873900829270 /* AppDelegate.swift */,
 				30B1D48625ED87F600829270 /* Employee.swift */,
-				30B1D47325ED873900829270 /* TableViewController.swift */,
+				30B1D47325ED873900829270 /* EmployeeListViewController.swift */,
 				30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */,
 				30B1D47A25ED873900829270 /* LaunchScreen.storyboard */,
 				30B1D47D25ED873900829270 /* Info.plist */,
@@ -145,7 +145,7 @@
 			files = (
 				30B1D48F25EDA15800829270 /* EmployeeEditorViewController.swift in Sources */,
 				30DE43A7260E04BE00BC2872 /* EmployeeEditorDelegate.swift in Sources */,
-				30B1D47425ED873900829270 /* TableViewController.swift in Sources */,
+				30B1D47425ED873900829270 /* EmployeeListViewController.swift in Sources */,
 				30B1D48725ED87F600829270 /* Employee.swift in Sources */,
 				30B1D47025ED873900829270 /* AppDelegate.swift in Sources */,
 			);
