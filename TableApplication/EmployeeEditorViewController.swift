@@ -14,7 +14,7 @@ class EmployeeEditorViewController: UIViewController {
     
     var nameTextField = UITextField()
     var surnameTextField = UITextField()
-    var professionTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
+    var professionTextField = UITextField()
     let ageLabel = UILabel()
     let maleLabel = UILabel()
     var numberPhoneTextField = UITextField()
@@ -39,17 +39,19 @@ class EmployeeEditorViewController: UIViewController {
         nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150).isActive = true
         nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+        
         nameTextField.textAlignment = .center
-        nameTextField.font = nameTextField.font?.withSize(20)
+        nameTextField.font = UIFont(name: "San-Francisco", size: 20)
         
         self.view.addSubview(surnameTextField)
         surnameTextField.translatesAutoresizingMaskIntoConstraints = false
         surnameTextField.text = employee?.surname
         surnameTextField.rightAnchor.constraint(equalTo: nameTextField.leftAnchor, constant: -20).isActive = true
         surnameTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor).isActive = true
-        nameTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        surnameTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        
         surnameTextField.textAlignment = .center
-        surnameTextField.font = surnameTextField.font?.withSize(20)
+        surnameTextField.font = UIFont(name: "San-Francisco", size: 20)
         
         self.view.addSubview(professionTextField)
         professionTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -58,8 +60,9 @@ class EmployeeEditorViewController: UIViewController {
         professionTextField.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
         professionTextField.rightAnchor.constraint(equalTo: surnameTextField.rightAnchor).isActive = true
         professionTextField.bottomAnchor.constraint(equalTo: professionTextField.topAnchor, constant: 30).isActive = true
+        
         professionTextField.textAlignment = .center
-        professionTextField.font = professionTextField.font?.withSize(20)
+        professionTextField.font = UIFont(name: "San-Francisco", size: 20)
         professionTextField.layer.borderWidth = 2
         professionTextField.layer.cornerRadius = 8
         
@@ -70,8 +73,9 @@ class EmployeeEditorViewController: UIViewController {
         ageLabel.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
         ageLabel.rightAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -25).isActive = true
         ageLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 120).isActive = true
+        
         ageLabel.textAlignment = .center
-        ageLabel.font = ageLabel.font.withSize(20)
+        ageLabel.font = UIFont(name: "San-Francisco", size: 20)
         ageLabel.layer.borderWidth = 2
         ageLabel.layer.cornerRadius = 8
        
@@ -82,19 +86,23 @@ class EmployeeEditorViewController: UIViewController {
         maleLabel.leftAnchor.constraint(equalTo: ageLabel.rightAnchor, constant: 15).isActive = true
         maleLabel.rightAnchor.constraint(equalTo: professionTextField.rightAnchor).isActive = true
         maleLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 120).isActive = true
+        
         maleLabel.textAlignment = .center
+        maleLabel.font = UIFont(name: "San-Francisco", size: 20)
         maleLabel.layer.borderWidth = 2
         maleLabel.layer.cornerRadius = 8
+        
         
         self.view.addSubview(numberPhoneTextField)
         numberPhoneTextField.translatesAutoresizingMaskIntoConstraints = false
         numberPhoneTextField.text = String(employee!.numberPhone)
         numberPhoneTextField.topAnchor.constraint(equalTo: professionTextField.topAnchor).isActive = true
         numberPhoneTextField.leftAnchor.constraint(equalTo: nameTextField.leftAnchor).isActive = true
-        numberPhoneTextField.rightAnchor.constraint(equalTo: nameTextField.rightAnchor, constant: 70).isActive = true
+        numberPhoneTextField.rightAnchor.constraint(equalTo: nameTextField.rightAnchor, constant: 90).isActive = true
         numberPhoneTextField.bottomAnchor.constraint(equalTo: professionTextField.bottomAnchor).isActive = true
+        
         numberPhoneTextField.textAlignment = .center
-        numberPhoneTextField.font = numberPhoneTextField.font?.withSize(20)
+        numberPhoneTextField.font = UIFont(name: "San-Francisco", size: 20)
         numberPhoneTextField.layer.borderWidth = 2
         numberPhoneTextField.layer.cornerRadius = 8
         
@@ -104,6 +112,7 @@ class EmployeeEditorViewController: UIViewController {
         buttonToSave.bottomAnchor.constraint(equalTo: buttonToSave.topAnchor, constant: 40).isActive = true
         buttonToSave.leftAnchor.constraint(equalTo: numberPhoneTextField.leftAnchor).isActive = true
         buttonToSave.rightAnchor.constraint(equalTo: numberPhoneTextField.rightAnchor).isActive = true
+        
         buttonToSave.setTitle("Save", for: .normal)
         buttonToSave.layer.borderWidth = 2
         buttonToSave.layer.cornerRadius = 8
