@@ -49,12 +49,19 @@ class EmployeeEditorViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.title = constants.viewTitle
         setupUI()
+        contentView()
     }
-    
+    func contentView() {
+        nameTextField.text = employee?.name
+        surnameTextField.text = employee?.surname
+        professionTextField.text = employee?.profession
+        ageLabel.text = String(employee!.age)
+        maleLabel.text =  employee?.male
+        numberPhoneTextField.text = String(employee!.numberPhone)
+    }
     func setupUI() {
         self.view.addSubview(nameTextField)
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        nameTextField.text = employee?.name
         nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(innerPadding.topSpaceBewteenTopOfViewAndName)).isActive = true
         nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(innerPadding.spaceBetweenRightOfViewAndName)).isActive = true
         nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(innerPadding.spaceBetweenBottomOfViewAndName)).isActive = true
@@ -64,7 +71,6 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(surnameTextField)
         surnameTextField.translatesAutoresizingMaskIntoConstraints = false
-        surnameTextField.text = employee?.surname
         surnameTextField.rightAnchor.constraint(equalTo: nameTextField.leftAnchor, constant: CGFloat(innerPadding.spaceBetweenNameAndSurname)).isActive = true
         surnameTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor).isActive = true
         surnameTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
@@ -74,7 +80,6 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(professionTextField)
         professionTextField.translatesAutoresizingMaskIntoConstraints = false
-        professionTextField.text = employee?.profession
         professionTextField.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: CGFloat(innerPadding.topSpaceBetweenProfessionAndSurname)).isActive = true
         professionTextField.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: CGFloat(innerPadding.leftSpaceBetweenProfessionAndSurname)).isActive = true
         professionTextField.rightAnchor.constraint(equalTo: surnameTextField.rightAnchor).isActive = true
@@ -87,7 +92,6 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(ageLabel)
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
-        ageLabel.text = String(employee!.age)
         ageLabel.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: CGFloat(innerPadding.topSpaceBetweenAgeAndSurname)).isActive = true
         ageLabel.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: CGFloat(innerPadding.leftSpaceBetweenAgeAndSurname)).isActive = true
         ageLabel.rightAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: CGFloat(innerPadding.rightSpaceBetweenAgeAndSurname)).isActive = true
@@ -100,7 +104,6 @@ class EmployeeEditorViewController: UIViewController {
        
         self.view.addSubview(maleLabel)
         maleLabel.translatesAutoresizingMaskIntoConstraints = false
-        maleLabel.text =  employee?.male
         maleLabel.topAnchor.constraint(equalTo: ageLabel.topAnchor).isActive = true
         maleLabel.leftAnchor.constraint(equalTo: ageLabel.rightAnchor, constant: CGFloat(innerPadding.leftSpaceBetweenMaleAndAge)).isActive = true
         maleLabel.rightAnchor.constraint(equalTo: professionTextField.rightAnchor).isActive = true
@@ -114,7 +117,6 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(numberPhoneTextField)
         numberPhoneTextField.translatesAutoresizingMaskIntoConstraints = false
-        numberPhoneTextField.text = String(employee!.numberPhone)
         numberPhoneTextField.topAnchor.constraint(equalTo: professionTextField.topAnchor).isActive = true
         numberPhoneTextField.leftAnchor.constraint(equalTo: nameTextField.leftAnchor).isActive = true
         numberPhoneTextField.rightAnchor.constraint(equalTo: nameTextField.rightAnchor, constant: CGFloat(innerPadding.rightSpaceBetweenNumberAndName)).isActive = true
