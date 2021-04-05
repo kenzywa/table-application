@@ -42,7 +42,6 @@ class EmployeeEditorViewController: UIViewController {
         static let rightSpaceBetweenNumberAndName : Int = 90
         static let topSpaceBetweenButtonAndMale : Int = 10
         static let heightOfButton : Int = 40
-        
     }
     
     override func viewDidLoad() {
