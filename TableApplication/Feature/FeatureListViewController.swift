@@ -2,6 +2,7 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var homeScreenTableView = UITableView(frame: .zero, style: .plain)
+    var temporaryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
     let identifier = "MyCell"
     var features = [Feature(name: "List of Employees", task: "Show list of employees", id: UUID().uuidString)]
     
@@ -15,6 +16,12 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.title = constants.titleOfView
         createTable()
         view.addSubview(homeScreenTableView)
+        temporaryLabel.center = CGPoint(x: 170, y: 150)
+        temporaryLabel.textAlignment = .natural
+        temporaryLabel.font = UIFont(name: "San Francisco", size: 5.0)
+        temporaryLabel.text = features.first?.task
+        temporaryLabel.textColor = .systemBlue
+        view.addSubview(temporaryLabel)
     }
     //MARK: - Methods
     func createTable() {
@@ -34,6 +41,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let feature = features[indexPath.row]
         cell.textLabel?.text = "\(feature.name)"
+        cell.textLabel?.font = UIFont(name: "San Francisco", size: 40.0)
         return cell
     }
     
