@@ -2,26 +2,23 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var homeScreenTableView = UITableView(frame: .zero, style: .plain)
-    var temporaryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
+    var temporaryLabel = UILabel()
     let identifier = "MyCell"
     var features = [Feature(name: "List of Employees", task: "Show list of employees", id: UUID().uuidString)]
     
-    private struct constants {
+    private struct Сonstants {
         static let heightOfRow : Float = 80.0
         static let titleOfView : String = "List of Features"
+        static let fromTopViewToLabel : Int = 140
+        static let fromRightViewToLabel : Int = 250
+        static let fromLeftViewToLavel : Int = 20
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = constants.titleOfView
+        self.title = Сonstants.titleOfView
         createTable()
-        view.addSubview(homeScreenTableView)
-        temporaryLabel.center = CGPoint(x: 170, y: 150)
-        temporaryLabel.textAlignment = .natural
-        temporaryLabel.font = UIFont(name: "San Francisco", size: 5.0)
-        temporaryLabel.text = features.first?.task
-        temporaryLabel.textColor = .systemBlue
-        view.addSubview(temporaryLabel)
+        setupUI()
     }
     //MARK: - Methods
     func createTable() {
@@ -31,6 +28,18 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.homeScreenTableView.dataSource = self
         homeScreenTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(homeScreenTableView)
+    }
+    func setupUI() {
+        view.addSubview(temporaryLabel)
+        temporaryLabel.translatesAutoresizingMaskIntoConstraints = false
+        temporaryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(Сonstants.fromTopViewToLabel)).isActive = true
+        temporaryLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(Сonstants.fromLeftViewToLavel)).isActive = true
+        temporaryLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(Сonstants.fromLeftViewToLavel)).isActive = true
+        
+        temporaryLabel.textAlignment = .natural
+        temporaryLabel.font = UIFont(name: "San Francisco", size: 5.0)
+        temporaryLabel.text = features.first?.task
+        temporaryLabel.textColor = .systemBlue
     }
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +62,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(constants.heightOfRow)
+        return CGFloat(Сonstants.heightOfRow)
     }
 }

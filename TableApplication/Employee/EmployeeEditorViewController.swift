@@ -21,14 +21,14 @@ class EmployeeEditorViewController: UIViewController {
     let buttonToSave = UIButton()
     var employee : Employee?
     
-    private struct constants {
+    private struct Сonstants {
         static let viewTitle : String = "Employee's Profile"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        self.title = constants.viewTitle
+        self.title = Сonstants.viewTitle
         setupUI()
     }
     
