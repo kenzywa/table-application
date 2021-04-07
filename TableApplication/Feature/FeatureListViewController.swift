@@ -55,9 +55,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let employee = features[indexPath.row]
         let employeeListVC = EmployeeListViewController()
-        //employeeListVC.employee = employee
         navigationController?.pushViewController(employeeListVC, animated: true)
     }
     //MARK: - UITableViewDelegate
