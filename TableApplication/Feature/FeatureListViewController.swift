@@ -2,16 +2,12 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var homeScreenTableView = UITableView()
-    var temporaryLabel = UILabel()
     let identifier = "MyCell"
     var features = [Feature(name: "List of Employees", task: "Temporary label", id: UUID().uuidString)]
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
         static let titleOfView : String = "List of Features"
-        static let fromTopViewToLabel : Int = 140
-        static let fromRightViewToLabel : Int = 250
-        static let fromLeftViewToLavel : Int = 20
     }
 
     override func viewDidLoad() {
@@ -35,18 +31,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         homeScreenTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         homeScreenTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         homeScreenTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //homeScreenTableView.sty
-            
-        view.addSubview(temporaryLabel)
-        temporaryLabel.translatesAutoresizingMaskIntoConstraints = false
-        temporaryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(Сonstants.fromTopViewToLabel)).isActive = true
-        temporaryLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(Сonstants.fromLeftViewToLavel)).isActive = true
-        temporaryLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(Сonstants.fromLeftViewToLavel)).isActive = true
-        
-        temporaryLabel.textAlignment = .natural
-        temporaryLabel.font = UIFont(name: "San Francisco", size: 5.0)
-        temporaryLabel.text = features.first?.task
-        temporaryLabel.textColor = .systemBlue
     }
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
