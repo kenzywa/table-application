@@ -1,10 +1,10 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var homeScreenTableView = UITableView(frame: .zero, style: .plain)
+    var homeScreenTableView = UITableView()
     var temporaryLabel = UILabel()
     let identifier = "MyCell"
-    var features = [Feature(name: "List of Employees", task: "Show list of employees", id: UUID().uuidString)]
+    var features = [Feature(name: "List of Employees", task: "Temporary label", id: UUID().uuidString)]
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
@@ -30,6 +30,13 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         view.addSubview(homeScreenTableView)
     }
     func setupUI() {
+        homeScreenTableView.translatesAutoresizingMaskIntoConstraints = false
+        homeScreenTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        homeScreenTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        homeScreenTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        homeScreenTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        //homeScreenTableView.sty
+            
         view.addSubview(temporaryLabel)
         temporaryLabel.translatesAutoresizingMaskIntoConstraints = false
         temporaryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(Сonstants.fromTopViewToLabel)).isActive = true
