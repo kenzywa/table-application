@@ -25,6 +25,7 @@ DerivedData/
 *.xccheckout
 */**/*/xcuserdata/*
 !*/xcshareddata/*
+*.xcworkspace
 
 ## Other
 *.moved-aside
