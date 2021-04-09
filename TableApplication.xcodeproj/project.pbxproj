@@ -13,6 +13,8 @@
 		30B1D47C25ED873900829270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B1D47A25ED873900829270 /* LaunchScreen.storyboard */; };
 		30B1D48725ED87F600829270 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D48625ED87F600829270 /* Employee.swift */; };
 		30B1D48F25EDA15800829270 /* EmployeeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D48E25EDA15800829270 /* EmployeeEditorViewController.swift */; };
+		30C76341261BB9A80008F007 /* FeatureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C76340261BB9A80008F007 /* FeatureListViewController.swift */; };
+		30C76345261BBB820008F007 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C76344261BBB820008F007 /* Feature.swift */; };
 		30DE43A7260E04BE00BC2872 /* EmployeeEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */; };
 		30EDEB0E261088480088B295 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30EDEB0D261088480088B295 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -26,6 +28,8 @@
 		30B1D47D25ED873900829270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B1D48625ED87F600829270 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		30B1D48E25EDA15800829270 /* EmployeeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEditorViewController.swift; sourceTree = "<group>"; };
+		30C76340261BB9A80008F007 /* FeatureListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListViewController.swift; sourceTree = "<group>"; };
+		30C76344261BBB820008F007 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEditorDelegate.swift; sourceTree = "<group>"; };
 		30EDEB0D261088480088B295 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,17 +64,35 @@
 		30B1D46E25ED873900829270 /* TableApplication */ = {
 			isa = PBXGroup;
 			children = (
-				30B1D48E25EDA15800829270 /* EmployeeEditorViewController.swift */,
+				30C76343261BB9B30008F007 /* Employee */,
+				30C7634B261BBF6E0008F007 /* Feature */,
 				30B1D46F25ED873900829270 /* AppDelegate.swift */,
-				30B1D48625ED87F600829270 /* Employee.swift */,
-				30B1D47325ED873900829270 /* EmployeeListViewController.swift */,
-				30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */,
 				30B1D47A25ED873900829270 /* LaunchScreen.storyboard */,
 				30B1D47D25ED873900829270 /* Info.plist */,
 				30EDEB0D261088480088B295 /* .gitignore */,
 				30B1D47825ED873900829270 /* Assets.xcassets */,
 			);
 			path = TableApplication;
+			sourceTree = "<group>";
+		};
+		30C76343261BB9B30008F007 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				30B1D48E25EDA15800829270 /* EmployeeEditorViewController.swift */,
+				30B1D48625ED87F600829270 /* Employee.swift */,
+				30B1D47325ED873900829270 /* EmployeeListViewController.swift */,
+				30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		30C7634B261BBF6E0008F007 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				30C76340261BB9A80008F007 /* FeatureListViewController.swift */,
+				30C76344261BBB820008F007 /* Feature.swift */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +167,11 @@
 			files = (
 				30B1D48F25EDA15800829270 /* EmployeeEditorViewController.swift in Sources */,
 				30DE43A7260E04BE00BC2872 /* EmployeeEditorDelegate.swift in Sources */,
+				30C76345261BBB820008F007 /* Feature.swift in Sources */,
 				30B1D47425ED873900829270 /* EmployeeListViewController.swift in Sources */,
 				30B1D48725ED87F600829270 /* Employee.swift in Sources */,
 				30B1D47025ED873900829270 /* AppDelegate.swift in Sources */,
+				30C76341261BB9A80008F007 /* FeatureListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
