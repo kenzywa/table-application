@@ -1,6 +1,16 @@
 import UIKit
 
 class ProjectEditorViewController: UIViewController {
+    private var delegate : ProjectEditorDelegate?
+    
+    init(delegate: ProjectEditorDelegate?) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     var project : Project?
     var nameTextField: UITextField = {
         let textField = UITextField()
@@ -128,6 +138,14 @@ class ProjectEditorViewController: UIViewController {
 }
     
     @objc private func didTapSaveButton() {
-        bind(projectName: "vasya", description: "pety", id: "", start_data: "")
+        guard let name = nameTextField.text,
+              let description = descriptionTextField.text,
+              let startData = start_dataLabel.text,
+              let id = project?.id else {
+            delegate?.showAlertFailed()
+            return
+        }
+    delegate?.toSaveData(name: name,description: description, startData: startData, id : id)
+    navigationController?.popViewController(animated: true)
     }
 }
