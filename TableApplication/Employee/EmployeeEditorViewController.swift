@@ -12,17 +12,74 @@ class EmployeeEditorViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var nameTextField = UITextField()
-    var surnameTextField = UITextField()
-    var professionTextField = UITextField()
-    let ageLabel = UILabel()
-    let maleLabel = UILabel()
-    var numberPhoneTextField = UITextField()
-    let buttonToSave = UIButton()
+    var nameTextField: UITextField = {
+        let firstTextField = UITextField()
+        firstTextField.textAlignment = .center
+        firstTextField.font = .systemFont(ofSize: 25)
+        return firstTextField
+    }()
+    
+    var surnameTextField: UITextField = {
+        let secondTextField = UITextField()
+        secondTextField.textAlignment = .center
+        secondTextField.font = .systemFont(ofSize: 25)
+        return secondTextField
+    }()
+        
+    var professionTextField: UITextField = {
+        let profTextField = UITextField()
+        profTextField.textAlignment = .center
+        profTextField.font = .systemFont(ofSize: 25)
+        profTextField.layer.borderWidth = 2
+        profTextField.layer.cornerRadius = 8
+        return profTextField
+    }()
+    
+    var numberPhoneTextField: UITextField = {
+        let numberTextField = UITextField()
+        numberTextField.textAlignment = .center
+        numberTextField.font = .systemFont(ofSize: 25)
+        numberTextField.layer.borderWidth = 2
+        numberTextField.layer.cornerRadius = 8
+        return numberTextField
+    }()
+    
+    let ageLabel: UILabel = {
+        let firstLabel = UILabel()
+        firstLabel.textAlignment = .center
+        firstLabel.font = .systemFont(ofSize: 25)
+        firstLabel.layer.borderWidth = 2
+        firstLabel.layer.cornerRadius = 8
+        return firstLabel
+    }()
+    
+    let maleLabel: UILabel = {
+        let secondLabel = UILabel()
+        secondLabel.font = .systemFont(ofSize: 25)
+        secondLabel.textAlignment = .center
+        secondLabel.layer.borderWidth = 2
+        secondLabel.layer.cornerRadius = 8
+        return secondLabel
+    }()
+    
+    let buttonToSave: UIButton = {
+        let button = UIButton()
+        button.setTitle("Save", for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = 8
+        button.backgroundColor = .systemGreen
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+        return button
+    }()
     var employee : Employee?
     
     private struct Сonstants {
         static let viewTitle : String = "Employee's Profile"
+    }
+    
+    private struct Padding {
+        
     }
     
     override func viewDidLoad() {
@@ -35,50 +92,38 @@ class EmployeeEditorViewController: UIViewController {
     func setupUI() {
         self.view.addSubview(nameTextField)
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         nameTextField.text = employee?.name
         nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150).isActive = true
         nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
         
-        nameTextField.textAlignment = .center
-        nameTextField.font = UIFont(name: "San Francisco", size: 25)
-        
         self.view.addSubview(surnameTextField)
         surnameTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         surnameTextField.text = employee?.surname
         surnameTextField.rightAnchor.constraint(equalTo: nameTextField.leftAnchor, constant: -20).isActive = true
         surnameTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor).isActive = true
         nameTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
         
-        surnameTextField.textAlignment = .center
-        surnameTextField.font = UIFont(name: "San Francisco", size: 25)
-        
         self.view.addSubview(professionTextField)
         professionTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         professionTextField.text = employee?.profession
         professionTextField.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 30).isActive = true
         professionTextField.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
         professionTextField.rightAnchor.constraint(equalTo: surnameTextField.rightAnchor).isActive = true
         professionTextField.bottomAnchor.constraint(equalTo: professionTextField.topAnchor, constant: 30).isActive = true
         
-        professionTextField.textAlignment = .center
-        professionTextField.font = UIFont(name: "San Francisco", size: 25)
-        professionTextField.layer.borderWidth = 2
-        professionTextField.layer.cornerRadius = 8
-        
         self.view.addSubview(ageLabel)
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         ageLabel.text = String(employee!.age)
         ageLabel.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 65).isActive = true
         ageLabel.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
         ageLabel.rightAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -25).isActive = true
         ageLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 120).isActive = true
         
-        ageLabel.textAlignment = .center
-        ageLabel.font = UIFont(name: "San Francisco", size: 25)
-        ageLabel.layer.borderWidth = 2
-        ageLabel.layer.cornerRadius = 8
-       
         self.view.addSubview(maleLabel)
         maleLabel.translatesAutoresizingMaskIntoConstraints = false
         maleLabel.text =  employee?.male
@@ -86,11 +131,6 @@ class EmployeeEditorViewController: UIViewController {
         maleLabel.leftAnchor.constraint(equalTo: ageLabel.rightAnchor, constant: 15).isActive = true
         maleLabel.rightAnchor.constraint(equalTo: professionTextField.rightAnchor).isActive = true
         maleLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 120).isActive = true
-        
-        maleLabel.font = UIFont(name: "San Francisco", size: 25)
-        maleLabel.textAlignment = .center
-        maleLabel.layer.borderWidth = 2
-        maleLabel.layer.cornerRadius = 8
         
         self.view.addSubview(numberPhoneTextField)
         numberPhoneTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -100,24 +140,13 @@ class EmployeeEditorViewController: UIViewController {
         numberPhoneTextField.rightAnchor.constraint(equalTo: nameTextField.rightAnchor, constant: 70).isActive = true
         numberPhoneTextField.bottomAnchor.constraint(equalTo: professionTextField.bottomAnchor).isActive = true
         
-        numberPhoneTextField.textAlignment = .center
-        numberPhoneTextField.font = UIFont(name: "San Francisco", size: 25)
-        numberPhoneTextField.layer.borderWidth = 2
-        numberPhoneTextField.layer.cornerRadius = 8
-        
         self.view.addSubview(buttonToSave)
         buttonToSave.translatesAutoresizingMaskIntoConstraints = false
+        
         buttonToSave.topAnchor.constraint(equalTo: maleLabel.bottomAnchor,constant: 10).isActive = true
         buttonToSave.bottomAnchor.constraint(equalTo: buttonToSave.topAnchor, constant: 40).isActive = true
         buttonToSave.leftAnchor.constraint(equalTo: numberPhoneTextField.leftAnchor).isActive = true
         buttonToSave.rightAnchor.constraint(equalTo: numberPhoneTextField.rightAnchor).isActive = true
-        
-        buttonToSave.setTitle("Save", for: .normal)
-        buttonToSave.layer.borderWidth = 2
-        buttonToSave.layer.cornerRadius = 8
-        buttonToSave.backgroundColor = .systemGreen
-        buttonToSave.setTitleColor(.black, for: .normal)
-        buttonToSave.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
     }
   
     @objc private func didTapSaveButton() {

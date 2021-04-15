@@ -28,6 +28,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     func setupUI() {
         homeScreenTableView.translatesAutoresizingMaskIntoConstraints = false
+        
         homeScreenTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeScreenTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         homeScreenTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
