@@ -14,14 +14,14 @@ class EmployeeEditorViewController: UIViewController {
     
     var nameTextField: UITextField = {
         let firstTextField = UITextField()
-        firstTextField.textAlignment = .center
+        firstTextField.textAlignment = .left
         firstTextField.font = .systemFont(ofSize: 20)
         return firstTextField
     }()
     
     var surnameTextField: UITextField = {
         let secondTextField = UITextField()
-        secondTextField.textAlignment = .center
+        secondTextField.textAlignment = .right
         secondTextField.font = .systemFont(ofSize: 20)
         return secondTextField
     }()
@@ -47,7 +47,7 @@ class EmployeeEditorViewController: UIViewController {
     let ageLabel: UILabel = {
         let firstLabel = UILabel()
         firstLabel.textAlignment = .center
-        firstLabel.font = .systemFont(ofSize: 25)
+        firstLabel.font = .systemFont(ofSize: 20)
         firstLabel.layer.borderWidth = 2
         firstLabel.layer.cornerRadius = 8
         return firstLabel
@@ -79,7 +79,26 @@ class EmployeeEditorViewController: UIViewController {
     }
     
     private struct Padding {
-        
+        static let areaBetweenNameAndViewOnLeft = 200
+        static let areaBetweenNameAndViewOnTop = 5
+        static let areaBetweenNameAndViewOnRight = -50
+        static let heightOfName = 30
+        static let areaBetweenSurnameAndViewOnLeft = 50
+        static let areaBetweenSurnameAndViewOnTop = 5
+        static let areaBetweenSurnameAndViewOnRight = -250
+        static let heightOfSurname = 30
+        static let areaBetweenProfessionAndSurnameOnLeft = -30
+        static let areaBetweenProfessionAndSurnameOnTop = 5
+        static let heightOfProfession = 30
+        static let areaBetweenAgeAndProfessionOnTop = 5
+        static let areaBetweenAgeAndProfessionOnRight = -80
+        static let heightOfAge = 30
+        static let areaBetweenMaleAndAgeOnLeft = 5
+        static let heightOfMale = 30
+        static let heightOfNumber = 30
+        static let areaBetweenMaleAndButtonOnTop = 15
+        static let areaBetweenMaleAndButtonOnRight = 120
+        static let heightOfButton = 50
     }
     
     override func viewDidLoad() {
@@ -97,61 +116,66 @@ class EmployeeEditorViewController: UIViewController {
         ageLabel.text = age
         maleLabel.text = male
         numberPhoneTextField.text = numberPhone
-        
     }
     
     func setupUI() {
         self.view.addSubview(nameTextField)
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150).isActive = true
-        nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+        nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: CGFloat(Padding.areaBetweenNameAndViewOnLeft)).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(Padding.areaBetweenNameAndViewOnTop)).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat(Padding.areaBetweenNameAndViewOnRight)).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfName)).isActive = true
         
         self.view.addSubview(surnameTextField)
         surnameTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        surnameTextField.rightAnchor.constraint(equalTo: nameTextField.leftAnchor, constant: -20).isActive = true
-        surnameTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor).isActive = true
+        surnameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: CGFloat(Padding.areaBetweenSurnameAndViewOnLeft) ).isActive = true
+        surnameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(Padding.areaBetweenSurnameAndViewOnTop)).isActive = true
+        surnameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat(Padding.areaBetweenSurnameAndViewOnRight)).isActive = true
+        surnameTextField.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfSurname)).isActive = true
+        
         nameTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
         
         self.view.addSubview(professionTextField)
         professionTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        professionTextField.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 30).isActive = true
-        professionTextField.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
-        professionTextField.rightAnchor.constraint(equalTo: surnameTextField.rightAnchor).isActive = true
-        professionTextField.bottomAnchor.constraint(equalTo: professionTextField.topAnchor, constant: 30).isActive = true
+        professionTextField.leadingAnchor.constraint(equalTo: surnameTextField.leadingAnchor, constant: CGFloat(Padding.areaBetweenProfessionAndSurnameOnLeft)).isActive = true
+        professionTextField.topAnchor.constraint(equalTo: surnameTextField.bottomAnchor, constant: CGFloat(Padding.areaBetweenProfessionAndSurnameOnTop)).isActive = true
+        professionTextField.trailingAnchor.constraint(equalTo: surnameTextField.trailingAnchor).isActive = true
+        professionTextField.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfProfession)).isActive = true
         
         self.view.addSubview(ageLabel)
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
     
-        ageLabel.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 65).isActive = true
-        ageLabel.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
-        ageLabel.rightAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -25).isActive = true
-        ageLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 120).isActive = true
+        ageLabel.leadingAnchor.constraint(equalTo: professionTextField.leadingAnchor).isActive = true
+        ageLabel.topAnchor.constraint(equalTo: professionTextField.bottomAnchor, constant: CGFloat(Padding.areaBetweenAgeAndProfessionOnTop)).isActive = true
+        ageLabel.trailingAnchor.constraint(equalTo: professionTextField.trailingAnchor, constant: CGFloat(Padding.areaBetweenAgeAndProfessionOnRight)).isActive = true
+        ageLabel.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfAge)).isActive = true
         
         self.view.addSubview(maleLabel)
         maleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        maleLabel.leadingAnchor.constraint(equalTo: ageLabel.trailingAnchor, constant: CGFloat(Padding.areaBetweenMaleAndAgeOnLeft)).isActive = true
         maleLabel.topAnchor.constraint(equalTo: ageLabel.topAnchor).isActive = true
-        maleLabel.leftAnchor.constraint(equalTo: ageLabel.rightAnchor, constant: 15).isActive = true
-        maleLabel.rightAnchor.constraint(equalTo: professionTextField.rightAnchor).isActive = true
-        maleLabel.bottomAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 120).isActive = true
+        maleLabel.trailingAnchor.constraint(equalTo: professionTextField.trailingAnchor).isActive = true
+        maleLabel.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfMale)).isActive = true
         
         self.view.addSubview(numberPhoneTextField)
         numberPhoneTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        numberPhoneTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         numberPhoneTextField.topAnchor.constraint(equalTo: professionTextField.topAnchor).isActive = true
-        numberPhoneTextField.leftAnchor.constraint(equalTo: nameTextField.leftAnchor).isActive = true
-        numberPhoneTextField.rightAnchor.constraint(equalTo: nameTextField.rightAnchor, constant: 70).isActive = true
-        numberPhoneTextField.bottomAnchor.constraint(equalTo: professionTextField.bottomAnchor).isActive = true
+        numberPhoneTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        numberPhoneTextField.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfNumber)).isActive = true
         
         self.view.addSubview(buttonToSave)
         buttonToSave.translatesAutoresizingMaskIntoConstraints = false
         
-        buttonToSave.topAnchor.constraint(equalTo: maleLabel.bottomAnchor,constant: 10).isActive = true
-        buttonToSave.bottomAnchor.constraint(equalTo: buttonToSave.topAnchor, constant: 40).isActive = true
-        buttonToSave.leftAnchor.constraint(equalTo: numberPhoneTextField.leftAnchor).isActive = true
-        buttonToSave.rightAnchor.constraint(equalTo: numberPhoneTextField.rightAnchor).isActive = true
+        buttonToSave.leadingAnchor.constraint(equalTo: maleLabel.leadingAnchor).isActive = true
+        buttonToSave.topAnchor.constraint(equalTo: maleLabel.bottomAnchor,constant: CGFloat(Padding.areaBetweenMaleAndButtonOnTop)).isActive = true
+        buttonToSave.trailingAnchor.constraint(equalTo: maleLabel.trailingAnchor, constant: CGFloat(Padding.areaBetweenMaleAndButtonOnRight)).isActive = true
+        buttonToSave.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfButton)).isActive = true
     }
   
     @objc private func didTapSaveButton() {
