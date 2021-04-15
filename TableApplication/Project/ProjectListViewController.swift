@@ -3,7 +3,8 @@ import UIKit
 class ProjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var projectListTableView = UITableView()
     let identifier = "MyCell"
-    var projects = [(name: "Hello DataBase!", desctiption: "Project for databases", id: UUID().uuidString)]
+    var projects = [Project(name: "Hello DataBase", desсription: "Project for databases",id: UUID().uuidString, start_data: "09.04.2021"),
+                    Project(name: "Dragon", desсription: "Project for game ", id: UUID().uuidString, start_data: "10.04.2021")]
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
@@ -46,9 +47,10 @@ class ProjectListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let employeeListVC = EmployeeListViewController()
-        
-        //navigationController?.pushViewController(employeeListVC, animated: true)
+        let project = projects[indexPath.row]
+        let projectEditorVC = ProjectEditorViewController()
+        projectEditorVC.project = project
+        navigationController?.pushViewController(projectEditorVC, animated: true)
     }
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
