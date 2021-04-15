@@ -15,21 +15,21 @@ class EmployeeEditorViewController: UIViewController {
     var nameTextField: UITextField = {
         let firstTextField = UITextField()
         firstTextField.textAlignment = .center
-        firstTextField.font = .systemFont(ofSize: 25)
+        firstTextField.font = .systemFont(ofSize: 20)
         return firstTextField
     }()
     
     var surnameTextField: UITextField = {
         let secondTextField = UITextField()
         secondTextField.textAlignment = .center
-        secondTextField.font = .systemFont(ofSize: 25)
+        secondTextField.font = .systemFont(ofSize: 20)
         return secondTextField
     }()
         
     var professionTextField: UITextField = {
         let profTextField = UITextField()
         profTextField.textAlignment = .center
-        profTextField.font = .systemFont(ofSize: 25)
+        profTextField.font = .systemFont(ofSize: 20)
         profTextField.layer.borderWidth = 2
         profTextField.layer.cornerRadius = 8
         return profTextField
@@ -38,7 +38,7 @@ class EmployeeEditorViewController: UIViewController {
     var numberPhoneTextField: UITextField = {
         let numberTextField = UITextField()
         numberTextField.textAlignment = .center
-        numberTextField.font = .systemFont(ofSize: 25)
+        numberTextField.font = .systemFont(ofSize: 20)
         numberTextField.layer.borderWidth = 2
         numberTextField.layer.cornerRadius = 8
         return numberTextField
@@ -55,7 +55,7 @@ class EmployeeEditorViewController: UIViewController {
     
     let maleLabel: UILabel = {
         let secondLabel = UILabel()
-        secondLabel.font = .systemFont(ofSize: 25)
+        secondLabel.font = .systemFont(ofSize: 20)
         secondLabel.textAlignment = .center
         secondLabel.layer.borderWidth = 2
         secondLabel.layer.cornerRadius = 8
@@ -87,13 +87,23 @@ class EmployeeEditorViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.title = Сonstants.viewTitle
         setupUI()
+        bind(name: employee?.name, surname: employee?.surname, profession: employee?.profession, age: String(employee!.age), male: employee?.male, numberPhone: String(employee!.numberPhone))
+    }
+    
+    func bind(name: String?, surname: String?,profession: String?,age : String?, male: String?, numberPhone: String?) {
+        nameTextField.text = name
+        surnameTextField.text = surname
+        professionTextField.text = profession
+        ageLabel.text = age
+        maleLabel.text = male
+        numberPhoneTextField.text = numberPhone
+        
     }
     
     func setupUI() {
         self.view.addSubview(nameTextField)
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        nameTextField.text = employee?.name
         nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150).isActive = true
         nameTextField.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
@@ -101,7 +111,6 @@ class EmployeeEditorViewController: UIViewController {
         self.view.addSubview(surnameTextField)
         surnameTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        surnameTextField.text = employee?.surname
         surnameTextField.rightAnchor.constraint(equalTo: nameTextField.leftAnchor, constant: -20).isActive = true
         surnameTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor).isActive = true
         nameTextField.bottomAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
@@ -109,7 +118,6 @@ class EmployeeEditorViewController: UIViewController {
         self.view.addSubview(professionTextField)
         professionTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        professionTextField.text = employee?.profession
         professionTextField.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 30).isActive = true
         professionTextField.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
         professionTextField.rightAnchor.constraint(equalTo: surnameTextField.rightAnchor).isActive = true
@@ -117,8 +125,7 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(ageLabel)
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        ageLabel.text = String(employee!.age)
+    
         ageLabel.topAnchor.constraint(equalTo: surnameTextField.topAnchor, constant: 65).isActive = true
         ageLabel.leftAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -100).isActive = true
         ageLabel.rightAnchor.constraint(equalTo: surnameTextField.leftAnchor, constant: -25).isActive = true
@@ -126,7 +133,6 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(maleLabel)
         maleLabel.translatesAutoresizingMaskIntoConstraints = false
-        maleLabel.text =  employee?.male
         maleLabel.topAnchor.constraint(equalTo: ageLabel.topAnchor).isActive = true
         maleLabel.leftAnchor.constraint(equalTo: ageLabel.rightAnchor, constant: 15).isActive = true
         maleLabel.rightAnchor.constraint(equalTo: professionTextField.rightAnchor).isActive = true
@@ -134,7 +140,6 @@ class EmployeeEditorViewController: UIViewController {
         
         self.view.addSubview(numberPhoneTextField)
         numberPhoneTextField.translatesAutoresizingMaskIntoConstraints = false
-        numberPhoneTextField.text = String(employee!.numberPhone)
         numberPhoneTextField.topAnchor.constraint(equalTo: professionTextField.topAnchor).isActive = true
         numberPhoneTextField.leftAnchor.constraint(equalTo: nameTextField.leftAnchor).isActive = true
         numberPhoneTextField.rightAnchor.constraint(equalTo: nameTextField.rightAnchor, constant: 70).isActive = true
