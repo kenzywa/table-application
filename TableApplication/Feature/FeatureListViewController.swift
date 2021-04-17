@@ -3,7 +3,8 @@ import UIKit
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var homeScreenTableView = UITableView()
     let identifier = "MyCell"
-    var features = [Feature(name: "List of Employees", task: "Temporary label", id: UUID().uuidString)]
+    var features = [Feature(name: "List of Employees", task: "Show list of employees", id: UUID().uuidString),
+                    Feature(name: "List of Projects", task: "Show list of projects", id: UUID().uuidString)]
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
@@ -27,6 +28,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     func setupUI() {
         homeScreenTableView.translatesAutoresizingMaskIntoConstraints = false
+        
         homeScreenTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         homeScreenTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         homeScreenTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -47,7 +49,15 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employeeListVC = EmployeeListViewController()
-        navigationController?.pushViewController(employeeListVC, animated: true)
+        let projectListVC = ProjectListViewController()
+        switch indexPath {
+        case [0,0]: navigationController?.pushViewController(employeeListVC, animated: true)
+        case [0,1]: navigationController?.pushViewController(projectListVC, animated: true)
+        default:
+            print("Failed")
+        }
+        
+        
     }
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
