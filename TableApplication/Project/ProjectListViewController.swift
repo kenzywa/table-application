@@ -1,6 +1,6 @@
 import UIKit
 
-class ProjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , ProjectEditorDelegate {
     var projectListTableView = UITableView()
     let identifier = "MyCell"
     var projects = [Project(name: "Hello DataBase", desсription: "Project for databases",id: UUID().uuidString, start_data: "09.04.2021"),
@@ -26,6 +26,22 @@ class ProjectListViewController: UIViewController, UITableViewDelegate, UITableV
         projectListTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(projectListTableView)
     }
+    func showAlertFailed() {
+        let alert = UIAlertController(title: "Error", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    func toSaveData(name : String, description : String, startData : String, id : String) {
+
+            if let index = projects.firstIndex(where: {$0.id == id}) {
+                projects[index].name = name
+                projects[index].desсription = description
+                projectListTableView.reloadData()
+            } else {
+                showAlertFailed()
+                return
+            }
+    }
     func setupUI() {
         projectListTableView.translatesAutoresizingMaskIntoConstraints = false
         projectListTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -48,7 +64,7 @@ class ProjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let project = projects[indexPath.row]
-        let projectEditorVC = ProjectEditorViewController()
+        let projectEditorVC = ProjectEditorViewController(delegate: self)
         projectEditorVC.project = project
         navigationController?.pushViewController(projectEditorVC, animated: true)
     }
