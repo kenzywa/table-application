@@ -4,7 +4,8 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     var homeScreenTableView = UITableView()
     let identifier = "MyCell"
     var features = [Feature(name: "List of Employees", task: "Show list of employees", id: UUID().uuidString),
-                    Feature(name: "List of Projects", task: "Show list of projects", id: UUID().uuidString)]
+                    Feature(name: "List of Projects", task: "Show list of projects", id: UUID().uuidString),
+                    Feature(name: "List of Tasks", task: "Show list of tasks", id: UUID().uuidString)]
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
@@ -50,9 +51,11 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employeeListVC = EmployeeListViewController()
         let projectListVC = ProjectListViewController()
+        let taskListVC = TaskListViewController()
         switch indexPath {
         case [0,0]: navigationController?.pushViewController(employeeListVC, animated: true)
         case [0,1]: navigationController?.pushViewController(projectListVC, animated: true)
+        case [0,2]: navigationController?.pushViewController(taskListVC, animated: true)
         default:
             print("Failed")
         }
