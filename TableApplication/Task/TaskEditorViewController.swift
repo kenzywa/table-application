@@ -1,7 +1,7 @@
 import UIKit
 
 class TaskEditorViewController: UIViewController {
-    var task : Task?
+    //var task : Task?
     var titleTextField : UITextField = {
         let firstTextField = UITextField()
         firstTextField.text = "Eliminate database"

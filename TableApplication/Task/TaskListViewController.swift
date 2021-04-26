@@ -73,14 +73,8 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let task = tasks[indexPath.row]
         cell.textLabel?.text = "\(task.title)"
-        cell.textLabel?.font = .systemFont(ofSize: 17)
+        cell.textLabel?.font = .systemFont(ofSize: 20)
         return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = tasks[indexPath.row]
-        let taskEditorVC = TaskEditorViewController()
-        taskEditorVC.task = task
-        navigationController?.pushViewController(taskEditorVC, animated: true)
     }
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
