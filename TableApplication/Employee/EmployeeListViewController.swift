@@ -23,7 +23,6 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
     }
     //MARK: - Methods
     func createTable() {
-        self.firstTableView.frame = view.bounds
         firstTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.firstTableView.delegate = self
         self.firstTableView.dataSource = self

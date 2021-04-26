@@ -51,7 +51,6 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     //MARK: - Methods
     func createTable() {
-        self.taskListTableView.frame = view.bounds
         taskListTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.taskListTableView.delegate = self
         self.taskListTableView.dataSource = self
