@@ -3,9 +3,40 @@ import UIKit
 class TaskListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var taskListTableView = UITableView()
     let identifier = "MyCell"
-    var tasks = [Task(title: "Create UI",id: UUID().uuidString,description: "UI",
-                      start_date: "25.04.2021",finish_date: "31.04.2021",status: "In progress",employee: "",project: ""),
-                 Task(title: "Delete database",id: UUID().uuidString, description: "Database need to delete", start_date: "26.04.2021", finish_date: "31.04.2021", status: "To do", employee: "", project: "")]
+    var tasks = [Task(title: "Create UI",
+                      id: UUID().uuidString,
+                      description: "UI",
+                      start_date: Date.init(timeIntervalSinceReferenceDate: 0),
+                      finish_date: Date.init(timeIntervalSinceReferenceDate: 432000),
+                      status: Status.todo,
+                      employee: Employee.init(name: "Roman",
+                                              surname: "Shukailo",
+                                              age: 22,
+                                              profession: "Swift dev",
+                                              male: "M",
+                                              numberPhone: 79812481033,
+                                              id: UUID().uuidString),
+                      project: Project.init(name: "Database",
+                                            desсription: "Hello",
+                                            id: UUID().uuidString,
+                                            start_data: "26.04.2021")),
+                 Task(title: "Delete database",
+                      id: UUID().uuidString,
+                      description: "Database need to delete",
+                      start_date: Date.init(timeIntervalSinceReferenceDate: 86400),
+                      finish_date: Date.init(timeIntervalSinceReferenceDate: 432000),
+                      status: Status.todo,
+                      employee: Employee.init(name: "Roman",
+                                              surname: "Shukailo",
+                                              age: 22,
+                                              profession: "Swift dev",
+                                              male: "M",
+                                              numberPhone: 79812481033,
+                                              id: UUID().uuidString),
+                      project: Project.init(name: "Database",
+                                            desсription: "Hello",
+                                            id: UUID().uuidString,
+                                            start_data: "26.04.2021"))]
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
@@ -44,21 +75,9 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let task = tasks[indexPath.row]
         cell.textLabel?.text = "\(task.title)"
-        cell.textLabel?.font = UIFont(name: "San Francisco", size: 40.0)
+        cell.textLabel?.font = .systemFont(ofSize: 20)
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let employeeListVC = EmployeeListViewController()
-//        let projectListVC = ProjectListViewController()
-//        switch indexPath {
-//        case [0,0]: navigationController?.pushViewController(employeeListVC, animated: true)
-//        case [0,1]: navigationController?.pushViewController(projectListVC, animated: true)
-//        default:
-//            print("Failed")
-//        }
-        
-//   }
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(Сonstants.heightOfRow)
