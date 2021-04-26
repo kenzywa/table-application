@@ -19,11 +19,9 @@ class ProjectListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     //MARK: - Methods
     func createTable() {
-        self.projectListTableView.frame = view.bounds
         projectListTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.projectListTableView.delegate = self
         self.projectListTableView.dataSource = self
-        projectListTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(projectListTableView)
     }
     func showAlertFailed() {

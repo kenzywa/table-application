@@ -20,15 +20,12 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.title = constants.titleOfView
         createTable()
-        view.addSubview(firstTableView)
     }
     //MARK: - Methods
     func createTable() {
-        self.firstTableView.frame = view.bounds
         firstTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.firstTableView.delegate = self
         self.firstTableView.dataSource = self
-        firstTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(firstTableView)
     }
     

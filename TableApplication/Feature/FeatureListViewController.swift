@@ -20,11 +20,9 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     //MARK: - Methods
     func createTable() {
-        self.homeScreenTableView.frame = view.bounds
         homeScreenTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.homeScreenTableView.delegate = self
         self.homeScreenTableView.dataSource = self
-        homeScreenTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(homeScreenTableView)
     }
     func setupUI() {

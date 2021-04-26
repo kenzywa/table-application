@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		308C0E622635F604003ABDD5 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C0E612635F604003ABDD5 /* TaskListViewController.swift */; };
+		308C0E662635F67E003ABDD5 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C0E652635F67E003ABDD5 /* Task.swift */; };
 		308C0E722635FC7C003ABDD5 /* TaskEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C0E712635FC7C003ABDD5 /* TaskEditorViewController.swift */; };
-		308C0E6D2635FACD003ABDD5 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C0E6C2635FACD003ABDD5 /* TaskListViewController.swift */; };
 		30B1D47025ED873900829270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D46F25ED873900829270 /* AppDelegate.swift */; };
 		30B1D47425ED873900829270 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1D47325ED873900829270 /* EmployeeListViewController.swift */; };
 		30B1D47925ED873900829270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B1D47825ED873900829270 /* Assets.xcassets */; };
@@ -26,8 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		308C0E612635F604003ABDD5 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		308C0E652635F67E003ABDD5 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		308C0E712635FC7C003ABDD5 /* TaskEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewController.swift; sourceTree = "<group>"; };
-		308C0E6C2635FACD003ABDD5 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		30B1D46C25ED873900829270 /* TableApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B1D46F25ED873900829270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30B1D47325ED873900829270 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		308C0E692635F686003ABDD5 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				308C0E712635FC7C003ABDD5 /* TaskEditorViewController.swift */,
+				308C0E612635F604003ABDD5 /* TaskListViewController.swift */,
+				308C0E652635F67E003ABDD5 /* Task.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
 		30B1D46325ED873900829270 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +94,9 @@
 				30C76343261BB9B30008F007 /* Employee */,
 				30C7634B261BBF6E0008F007 /* Feature */,
 				30B1D47D25ED873900829270 /* Info.plist */,
-				308C0E712635FC7C003ABDD5 /* TaskEditorViewController.swift */,
-				308C0E6C2635FACD003ABDD5 /* TaskListViewController.swift */,
-				30B1D47A25ED873900829270 /* LaunchScreen.storyboard */,
+				308C0E692635F686003ABDD5 /* Task */,
 				6936E3C7262B0FF70044E8AE /* Project */,
+				30B1D47A25ED873900829270 /* LaunchScreen.storyboard */,
 			);
 			path = TableApplication;
 			sourceTree = "<group>";
@@ -197,9 +208,10 @@
 				6936E3CD262B0FF70044E8AE /* ProjectEditorViewController.swift in Sources */,
 				6936E3CE262B0FF70044E8AE /* Project.swift in Sources */,
 				30C76345261BBB820008F007 /* Feature.swift in Sources */,
-				308C0E6D2635FACD003ABDD5 /* TaskListViewController.swift in Sources */,
+				308C0E622635F604003ABDD5 /* TaskListViewController.swift in Sources */,
 				30B1D47425ED873900829270 /* EmployeeListViewController.swift in Sources */,
 				30B1D48725ED87F600829270 /* Employee.swift in Sources */,
+				308C0E662635F67E003ABDD5 /* Task.swift in Sources */,
 				30B1D47025ED873900829270 /* AppDelegate.swift in Sources */,
 				6936E3CF262B0FF70044E8AE /* ProjectListViewController.swift in Sources */,
 				30C76341261BB9A80008F007 /* FeatureListViewController.swift in Sources */,
