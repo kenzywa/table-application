@@ -20,7 +20,6 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.title = constants.titleOfView
         createTable()
-        view.addSubview(firstTableView)
     }
     //MARK: - Methods
     func createTable() {
