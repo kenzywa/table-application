@@ -24,7 +24,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         homeScreenTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.homeScreenTableView.delegate = self
         self.homeScreenTableView.dataSource = self
-        homeScreenTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(homeScreenTableView)
     }
     func setupUI() {

@@ -27,7 +27,6 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
         firstTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.firstTableView.delegate = self
         self.firstTableView.dataSource = self
-        firstTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(firstTableView)
     }
     

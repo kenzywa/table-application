@@ -55,7 +55,6 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         taskListTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.taskListTableView.delegate = self
         self.taskListTableView.dataSource = self
-        taskListTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(taskListTableView)
     }
     func setupUI() {
