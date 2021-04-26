@@ -19,7 +19,6 @@
 		30C76341261BB9A80008F007 /* FeatureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C76340261BB9A80008F007 /* FeatureListViewController.swift */; };
 		30C76345261BBB820008F007 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C76344261BBB820008F007 /* Feature.swift */; };
 		30DE43A7260E04BE00BC2872 /* EmployeeEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */; };
-		30EDEB0E261088480088B295 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30EDEB0D261088480088B295 /* .gitignore */; };
 		6936E3CC262B0FF70044E8AE /* ProjectEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6936E3C8262B0FF70044E8AE /* ProjectEditorDelegate.swift */; };
 		6936E3CD262B0FF70044E8AE /* ProjectEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6936E3C9262B0FF70044E8AE /* ProjectEditorViewController.swift */; };
 		6936E3CE262B0FF70044E8AE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6936E3CA262B0FF70044E8AE /* Project.swift */; };
@@ -41,7 +40,6 @@
 		30C76340261BB9A80008F007 /* FeatureListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListViewController.swift; sourceTree = "<group>"; };
 		30C76344261BBB820008F007 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		30DE43A6260E04BE00BC2872 /* EmployeeEditorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEditorDelegate.swift; sourceTree = "<group>"; };
-		30EDEB0D261088480088B295 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		6936E3C8262B0FF70044E8AE /* ProjectEditorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectEditorDelegate.swift; sourceTree = "<group>"; };
 		6936E3C9262B0FF70044E8AE /* ProjectEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectEditorViewController.swift; sourceTree = "<group>"; };
 		6936E3CA262B0FF70044E8AE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 		30B1D46E25ED873900829270 /* TableApplication */ = {
 			isa = PBXGroup;
 			children = (
-				30EDEB0D261088480088B295 /* .gitignore */,
 				30B1D46F25ED873900829270 /* AppDelegate.swift */,
 				30B1D47825ED873900829270 /* Assets.xcassets */,
 				30C76343261BB9B30008F007 /* Employee */,
@@ -190,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B1D47C25ED873900829270 /* LaunchScreen.storyboard in Resources */,
-				30EDEB0E261088480088B295 /* .gitignore in Resources */,
 				30B1D47925ED873900829270 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
