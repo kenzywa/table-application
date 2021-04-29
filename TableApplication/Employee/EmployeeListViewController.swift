@@ -13,16 +13,18 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
     
     private struct constants {
         static let heightOfRow : Float = 80.0
-        static let titleOfView : String = "Table of Employees"
+        static let titleOfView : String = "List of Employees"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .systemBackground
         self.title = constants.titleOfView
         createTable()
     }
     //MARK: - Methods
     func createTable() {
+        self.firstTableView.frame = view.bounds
         firstTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.firstTableView.delegate = self
         self.firstTableView.dataSource = self
