@@ -1,15 +1,11 @@
 import UIKit
 
-class EmployeeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EmployeeEditorDelegate {
+class EmployeeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EmployeeEditorDelegate{
+    
     var firstTableView = UITableView(frame: .zero, style: .plain)
     let identifier = "MyCell"
-    var employees = [Employee(name: "Veronika", surname: "Petrova", age: 19 , profession: "Doctor", male: "W", numberPhone: 79811234567, id : UUID().uuidString),
-                     Employee(name: "Roman", surname: "Shukailo", age: 22 , profession: "Swift dev", male: "M", numberPhone: 79811234567, id: UUID().uuidString),
-                     Employee(name: "Marina", surname: "Bondarenko", age: 28, profession: "Sales Manager", male: "W", numberPhone: 79811234567, id: UUID().uuidString),
-                     Employee(name: "Kirill", surname: "Unshikov", age: 21 , profession: "Go dev", male: "M", numberPhone: 79811234567, id: UUID().uuidString),
-                     Employee(name: "Roman", surname: "Suhov", age: 22, profession: "Python dev ", male: "m", numberPhone: 79811234567, id: UUID().uuidString),
-                     Employee(name: "Raif", surname: "Garipov", age: 19 , profession: "Student ", male: "M", numberPhone: 78005553535, id: UUID().uuidString),
-                     Employee(name: "Igor", surname: "Avgustov", age: 22 , profession: "Frontend dev", male: "M", numberPhone: 78005553535, id: UUID().uuidString)]
+    var employees: [Employee] = []
+    let server: Server = Stub()
     
     private struct constants {
         static let heightOfRow : Float = 80.0
@@ -21,6 +17,9 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
         self.view.backgroundColor = .systemBackground
         self.title = constants.titleOfView
         createTable()
+        
+        employees = server.getEmployees()
+        firstTableView.reloadData()
     }
     //MARK: - Methods
     func createTable() {

@@ -1,43 +1,12 @@
 import UIKit
 
 class TaskListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var taskListTableView = UITableView()
     let identifier = "MyCell"
-    var tasks = [Task(title: "Create UI",
-                      id: UUID().uuidString,
-                      description: "UI",
-                      start_date: Date.init(timeIntervalSinceReferenceDate: 0),
-                      finish_date: Date.init(timeIntervalSinceReferenceDate: 432000),
-                      status: Status.todo,
-                      employee: Employee.init(name: "Roman",
-                                              surname: "Shukailo",
-                                              age: 22,
-                                              profession: "Swift dev",
-                                              male: "M",
-                                              numberPhone: 79812481033,
-                                              id: UUID().uuidString),
-                      project: Project.init(name: "Database",
-                                            desсription: "Hello",
-                                            id: UUID().uuidString,
-                                            start_data: "26.04.2021")),
-                 Task(title: "Delete database",
-                      id: UUID().uuidString,
-                      description: "Database need to delete",
-                      start_date: Date.init(timeIntervalSinceReferenceDate: 86400),
-                      finish_date: Date.init(timeIntervalSinceReferenceDate: 432000),
-                      status: Status.todo,
-                      employee: Employee.init(name: "Roman",
-                                              surname: "Shukailo",
-                                              age: 22,
-                                              profession: "Swift dev",
-                                              male: "M",
-                                              numberPhone: 79812481033,
-                                              id: UUID().uuidString),
-                      project: Project.init(name: "Database",
-                                            desсription: "Hello",
-                                            id: UUID().uuidString,
-                                            start_data: "26.04.2021"))]
-    
+    var tasks: [Task] = []
+    let server: Server = Stub()
+   
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
         static let titleOfView : String = "List of Tasks"
@@ -48,6 +17,9 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         self.title = Сonstants.titleOfView
         createTable()
         setupUI()
+        
+        tasks = server.getTasks()
+        taskListTableView.reloadData()
     }
     //MARK: - Methods
     func createTable() {
@@ -64,6 +36,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         taskListTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         taskListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+   
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count

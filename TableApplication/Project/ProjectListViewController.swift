@@ -1,10 +1,10 @@
 import UIKit
 
-class ProjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , ProjectEditorDelegate {
+class ProjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var projectListTableView = UITableView()
     let identifier = "MyCell"
-    var projects = [Project(name: "Hello DataBase", desсription: "Project for databases",id: UUID().uuidString, start_data: "09.04.2021"),
-                    Project(name: "Dragon", desсription: "Project for game ", id: UUID().uuidString, start_data: "10.04.2021")]
+    var projects: [Project] = []
+    let server: Server = Stub()
     
     private struct Сonstants {
         static let heightOfRow : Float = 80.0
@@ -16,6 +16,9 @@ class ProjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.title = Сonstants.titleOfView
         createTable()
         setupUI()
+        
+        projects = server.getProjects()
+        projectListTableView.reloadData()
     }
     //MARK: - Methods
     func createTable() {
@@ -62,7 +65,7 @@ class ProjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let project = projects[indexPath.row]
-        let projectEditorVC = ProjectEditorViewController(delegate: self)
+        let projectEditorVC = ProjectEditorViewController()
         projectEditorVC.project = project
         navigationController?.pushViewController(projectEditorVC, animated: true)
     }

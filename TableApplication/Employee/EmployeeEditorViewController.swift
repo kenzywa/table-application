@@ -72,13 +72,6 @@ class EmployeeEditorViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
         return button
     }()
-    let temporaryButton : UIButton = {
-        let buttonTemporary = UIButton()
-        buttonTemporary.setTitle("To TaskEditor", for: .normal)
-        buttonTemporary.backgroundColor = .darkGray
-        buttonTemporary.addTarget(self, action: #selector(tapped), for: .touchUpInside)
-        return buttonTemporary
-    }()
     
     var employee : Employee?
     
@@ -184,17 +177,8 @@ class EmployeeEditorViewController: UIViewController {
         buttonToSave.topAnchor.constraint(equalTo: maleLabel.bottomAnchor,constant: CGFloat(Padding.areaBetweenMaleAndButtonOnTop)).isActive = true
         buttonToSave.trailingAnchor.constraint(equalTo: maleLabel.trailingAnchor, constant: CGFloat(Padding.areaBetweenMaleAndButtonOnRight)).isActive = true
         buttonToSave.heightAnchor.constraint(equalToConstant: CGFloat(Padding.heightOfButton)).isActive = true
-        
-        
-        self.view.addSubview(temporaryButton)
-        temporaryButton.translatesAutoresizingMaskIntoConstraints = false
-        temporaryButton.topAnchor.constraint(equalTo: buttonToSave.bottomAnchor, constant: 50).isActive = true
     }
-    @objc private func tapped() {
-        let taskEditorVC = TaskEditorViewController()
-        navigationController?.pushViewController(taskEditorVC, animated: true)
-    }
-  
+   
     @objc private func didTapSaveButton() {
             guard let name = nameTextField.text,
                   let surname = surnameTextField.text,
